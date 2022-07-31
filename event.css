@@ -1,0 +1,612 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper {
+    width: 100%;
+    height: fit-content;
+}
+
+.swiper-slide img {
+    height: 100vh;
+    width: 100%;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    color: white;
+    background-color: rgba(186, 177, 177, 0.267);
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.swiper .swiper-pagination-bullet-active {
+    background-color: white;
+}
+
+@media (max-width: 700px) {
+    .swiper .swiper-button-prev,
+    .swiper .swiper-button-next {
+        display: none;
+    }
+}
+
+body {
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 1rem;
+    z-index: 1;
+}
+
+.head {
+    background-color: unset;
+}
+
+.head li {
+    list-style: none;
+}
+
+.head a {
+    color: #dda969;
+    text-decoration: none;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-branding {
+    animation: branding 5s ease-in;
+}
+
+@keyframes branding {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    animation: nav_menu 5s ease-in;
+}
+
+@keyframes nav_menu {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-0%);
+    }
+}
+
+.nav-menu a {
+    color: white;
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-item {
+    margin: 16px 0;
+}
+
+.nav-link {
+    transition: 0.7s ease;
+}
+
+.nav-link:hover {
+    color: dodgerblue;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 3px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.nav-bar.active {
+    left: 0;
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+} 
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+} 
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg); 
+} 
+
+@media (max-width: 760px) {
+    .nav-menu {
+        align-items: center;
+        z-index: 1;
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        gap: 1.5rem;
+        flex-direction: column;
+        background-color: black;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-branding {
+        font-size: 1.1rem;
+    }
+
+    .hamburger {
+        display: block;
+        animation: hamburger 5s ease-in;
+    }
+}
+
+@media (min-width: 760px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+@media (min-width: 1023px) {
+    .nav-bar {
+        gap: 17rem;
+    }
+
+    .nav-branding {
+        font-size: 1.8rem;
+    }
+
+    .nav-menu {
+        font-size: 1.3rem;
+    }
+}
+
+.introduction {
+    position: relative;
+    width: 90%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+}
+
+.introduction h1 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: antiquewhite;
+    animation: intro_header 5s ease-in;
+}
+
+@keyframes intro_header {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.introduction p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+    animation: intro_para 5s ease-in;
+}
+
+@keyframes intro_para {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-0px);
+    }
+}
+
+.introduction button {
+    font-size: 0.7rem;
+    padding-inline: 0.5rem;
+    padding-block: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    color: #dda969;
+    background-color: white;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    animation: intro_btn 5s ease-in;
+}
+
+@keyframes intro_btn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-0px);
+    }
+}
+
+.introduction button:hover {
+    color: white;
+    background-color: #dda969;
+    transition: 0.5s;
+}
+
+@media (min-width: 700px) {
+    .introduction {
+        transform: translate(-50%, 20%);
+        width: 60%;
+    }
+}
+
+@media (min-width: 1023px) {
+    .introduction {
+        transform: translate(-50%, 40%);
+    }
+
+    .introduction h1 {
+        font-size: 2.8rem;
+    }
+
+    .introduction p {
+        font-size: 1.3rem;
+    }
+
+    .introduction button {
+        font-size: 0.9rem;
+        padding-inline: 1rem;
+    }
+}
+
+/* This is where the user will book the date, time and the kind of event he/she wants */
+.my-form {
+    background-color: wheat;
+    margin-top: -0.5rem;
+    padding-block: 2rem;
+    line-height: 2rem;
+    padding-bottom: 5rem;
+}
+
+.my-form h2 {
+    color: rgb(138, 88, 27);
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+form {
+    margin-inline: 0.5rem;
+}
+
+form label {
+    color: rgb(138, 88, 27);
+    font-size: 0.9rem;
+}
+
+form input {
+    width: 82%;
+    height: 1.5rem;
+    font-size: 0.9rem;
+    border-inline: none;
+    border-block: none;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 0px;
+    border-radius: 3px;
+}
+
+form #email {
+    width: 81%;
+}
+
+form #date {
+    width: 84%;
+}
+
+form #time1 {
+    width: 83%;
+}
+
+form #time2 {
+    width: 90%;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form select {
+    width: 81%;
+    height: 1.5rem;
+    font-size: 0.9rem;
+    border-inline: unset;
+    border-block: unset;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 0px;
+    border-radius: 3px;
+}
+
+form select:focus {
+    outline: none;
+}
+
+.my-form .submitButton {
+    padding-left: 2rem;
+}
+
+.my-form button {
+    background-color: white;
+    border: none;
+    font-size: 0.8rem;
+    padding-inline: 0.8rem;
+    padding-block: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: 1.5rem;
+    float: right;
+    cursor: pointer;
+}
+
+.my-form button:hover {
+    color: white;
+    background-color: #dda969;
+    border: 4px solid #6a543980;
+    transition: 0.5s;
+}
+
+@media (min-width: 768px) {
+    form {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 0.5rem;
+        margin-left: 2rem;
+    }
+}
+
+@media (min-width: 1023px) {
+    .my-form {
+        padding-top: 4rem;
+        padding-bottom: 8rem;
+    }
+
+    .my-form h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    form {
+        line-height: 3rem;
+    }
+
+    form label {
+        font-size: 1.2rem;
+    }
+
+    form input {
+        height: 2rem;
+    }
+
+    form #email {
+        width: 83.8%;
+    }
+
+    form #date {
+        width: 85.7%;
+    }
+
+    form #time1 {
+        width: 82%;
+    }
+
+    form select {
+        height: 2rem;
+    }
+}
+
+
+/* This is the footer of the content. Where the contact and all other information of the event center is */
+.all-footer {
+    text-align: center;
+    padding-top: 2rem;
+    background-color: black;
+}
+
+.first h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #dda969;
+}
+
+.first img {
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+
+.contact .address,
+.contact .call,
+.contact .email {
+    margin-bottom: 1rem;
+    color: #dda969;
+}
+
+.second {
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.second h1 {
+    color: #dda969;
+    font-size: 1.2rem;
+}
+
+.second ul li {
+    list-style: none;
+}
+
+.second ul li > a {
+    color: rgb(221, 169, 105);
+    text-decoration: none;
+}
+
+.second ul li > a:hover {
+    color: darkorange;
+}
+
+.third {
+    line-height: 1.5rem;
+    color: #dda969;
+    margin-bottom: 1rem;
+}
+
+.third h1 {
+    font-size: 1.2rem;
+}
+
+.third ul li {
+    list-style: none;
+    color: rgb(221, 169, 105);
+}
+
+.foot {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #dda969;
+    padding-bottom: 0.5rem;
+}
+
+.foot ul {
+    list-style: none;
+    line-height: 1.5rem;
+    display: none;
+}
+
+@media (min-width: 1023px) {
+    .all-footer {
+        text-align: unset;
+    }
+
+    .footer {
+        margin-inline: 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .first {
+        width: 20%;
+    }
+    
+    .first h1 {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #dda969;
+    }
+    
+    .first img {
+        width: 130%;
+        height: 150px;
+        margin-bottom: 2.5rem;
+    }
+    
+    .call,
+    .email,
+    .address {
+        width: 150%;
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .second {
+        line-height: 3rem;
+    }
+
+    .third {
+        line-height: 3rem;
+    }
+
+    .foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-inline: 2rem;
+    }
+
+    .foot ul {
+        display: block;
+        display: flex;
+        gap: 1rem;
+    }
+}
